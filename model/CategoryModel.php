@@ -25,3 +25,11 @@ function getAllCategoriesBySlug(PDO $db): array|string
         return $e->getMessage();
     }
 }
+
+function getCategoriesBySlug(PDO $connect, string $slug): array | bool 
+{
+    $sql=  "SELECT title, `description`
+            From Catgory
+            WHERE slug = ?";
+    $result = $connect->prepare($sql);
+} 
